@@ -1,0 +1,7 @@
+@enum,id,name,color,description
+name,i32,text,text,text
+Common,1,普通,#FFFFFF,常见物品
+Uncommon,2,优秀,#1EFF00,较好的物品
+Rare,3,稀有,#0070DD,稀有物品
+Epic,4,史诗,#A335EE,史诗物品
+Legendary,5,传说,#FF8000,传说物品

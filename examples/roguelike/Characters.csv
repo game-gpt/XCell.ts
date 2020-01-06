@@ -1,0 +1,8 @@
+@list,名称,描述,初始生命,初始金币,初始遗物,初始卡组,解锁条件,图标
+id,name,description,starting_hp,starting_gold,starting_relics,starting_deck,unlock_condition,icon
+i32,text,text,i32,i32,"[&Relics]","[&Cards]",text,text
+1,战士,精通近战战斗的勇猛战士,120,50,"[1]","[1,2,3,4,5]","默认解锁","character_warrior"
+2,法师,操控元素之力的神秘法师,80,60,"[2]","[11,12,13,14,15]","默认解锁","character_mage"
+3,盗贼,敏捷灵活的暗影刺客,90,80,"[3]","[21,22,23,24,25]","使用战士通关一次","character_rogue"
+4,猎人,精通远程攻击的猎手,100,55,"[4]","[31,32,33,34,35]","使用法师通关一次","character_hunter"
+5,圣骑士,攻守兼备的神圣骑士,110,40,"[5]","[41,42,43,44,45]","使用盗贼通关一次","character_paladin"

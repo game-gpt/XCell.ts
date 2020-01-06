@@ -1,0 +1,10 @@
+@class,@comment,@type,@default
+max_hand_size,最大手牌数,i32,10
+max_board_minions,场上最大随从数,i32,7
+starting_mana,初始法力,i32,1
+max_mana,最大法力,i32,10
+starting_cards,起手牌数,i32,3
+coin_card,先手硬币卡,i32,1
+max_deck_size,最大卡组大小,i32,30
+min_deck_size,最小卡组大小,i32,30
+max_same_card,同名卡上限,i32,2

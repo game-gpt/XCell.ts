@@ -1,0 +1,8 @@
+@enum,id,name,color,drop_rate_modifier
+name,i32,text,color,f32
+Common,1,普通,#FFFFFF,1.0
+Uncommon,2,优秀,#1EFF00,1.2
+Rare,3,稀有,#0070DD,1.5
+Epic,4,史诗,#A335EE,2.0
+Legendary,5,传说,#FF8000,3.0
+Mythic,6,神话,#E6CC80,5.0

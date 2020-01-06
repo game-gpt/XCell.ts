@@ -1,0 +1,10 @@
+@list,name,age,gender,personality,description,image
+id,@text,u32,text,text,text,text
+1,樱井雪,17,女,温柔善良,主人公的同班同学，成绩优秀，性格温柔,character_sakurai_yuki.png
+2,佐藤阳太,18,男,阳光开朗,主人公，喜欢运动，性格开朗,character_sato_yota.png
+3,田中麻衣,17,女,活泼好动,雪的好朋友，喜欢参加各种活动,character_tanaka_mai.png
+4,山本健太,18,男,沉默寡言,阳太的好朋友，喜欢读书，性格内向,character_yamamoto_kenta.png
+5,小林老师,28,女,成熟稳重,班级的班主任，教学认真负责,character_kobayashi_sensei.png
+6,宫本龙,18,男,自信傲慢,学校的学生会主席，成绩优异,character_miyamoto_ryu.png
+7,铃木杏,16,女,天真可爱,阳太的妹妹，活泼可爱,character_suzuki_anne.png
+8,高桥凉子,17,女,神秘莫测,转校生，总是独来独往，充满神秘感,character_takahashi_ryoko.png

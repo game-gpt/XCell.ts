@@ -1,0 +1,9 @@
+@class,@comment,@type,@default
+max_floor,最大层数,i32,50
+base_player_hp,玩家基础生命,i32,100
+gold_per_floor,每层金币奖励,i32,20
+relic_choice_count,遗物选择数量,i32,3
+card_reward_count,卡牌奖励数量,i32,3
+max_deck_size,最大卡组大小,i32,30
+max_hand_size,最大手牌数,i32,5
+starting_energy,初始能量,i32,3

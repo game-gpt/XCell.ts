@@ -1,0 +1,12 @@
+@list,character_id,level,required_points,unlock_event,special_dialogue
+id,&Characters,i32,i32,text,&Dialogues
+1,1,1,0,初次相遇,1
+2,1,2,20,成为朋友,5
+3,1,3,50,亲密好友,8
+4,1,4,80,暗恋萌芽,13
+5,1,5,100,告白成功,16
+6,3,1,0,初次相遇,3
+7,3,2,30,成为朋友,7
+8,3,3,60,亲密好友,0
+9,8,1,0,神秘转校生,0
+10,8,2,40,敞开心扉,0

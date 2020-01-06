@@ -1,0 +1,18 @@
+version = "0.0.0"
+
+exclude = ""
+include = "*.csv"
+
+[[generators]]
+type = "cocos"
+enable = true
+project = "."
+output = "cocos"
+
+# Unity 生成器暂时禁用
+# [[generators]]
+# type = "unity"
+# enable = true
+# project = "."
+# output = "unity"
+# namespace = "DataTable"

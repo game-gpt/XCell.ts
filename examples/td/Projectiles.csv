@@ -1,0 +1,12 @@
+@list,name,speed,damage_type,splash_radius,effect_id,visual_effect
+id,text,f32,text,f32,&Effects,text
+1,箭矢,15.0,physical,0.0,,arrow_normal
+2,穿甲箭,12.0,physical,0.0,,arrow_armor
+3,炮弹,8.0,explosive,1.5,,cannonball
+4,魔法球,10.0,magic,0.0,,magic_orb
+5,冰霜弹,9.0,ice,0.8,1,ice_projectile
+6,火焰弹,7.0,fire,1.2,2,fire_projectile
+7,闪电链,20.0,lightning,0.0,,lightning_bolt
+8,毒液弹,11.0,poison,0.5,4,poison_projectile
+9,寒冰箭,14.0,ice,0.0,3,ice_arrow
+10,爆裂弹,6.0,explosive,2.0,,explosive_shell

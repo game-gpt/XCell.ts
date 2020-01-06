@@ -1,0 +1,10 @@
+@list,name,description,background_image,bgm
+id,text,text,text,text
+1,教室,学校的普通教室，有黑板和课桌,scene_classroom.png,bgm_classroom.mp3
+2,校园,学校的校园，有操场和教学楼,scene_schoolyard.png,bgm_schoolyard.mp3
+3,图书馆,学校的图书馆，有很多书架,scene_library.png,bgm_library.mp3
+4,咖啡厅,学校附近的咖啡厅，环境优雅,scene_cafe.png,bgm_cafe.mp3
+5,公园,城市中的公园，有绿树和长椅,scene_park.png,bgm_park.mp3
+6,家里,主人公的家，温馨舒适,scene_home.png,bgm_home.mp3
+7,学生会室,学校的学生会办公室,scene_student_council.png,bgm_student_council.mp3
+8,体育馆,学校的体育馆，有篮球场,scene_gym.png,bgm_gym.mp3

@@ -1,0 +1,13 @@
+@list,名称,类型,位置,宽度,高度,连接房间ID,敌人刷新,事件ID,是否起点,是否BOSS,是否商店
+id,name,type,position,width,height,connections,event_id,is_start,is_boss,is_shop
+i32,text,text,"vec2<i32>",i32,i32,"[i32]","[&Enemies]",&Events,bool,bool,bool
+1,入口大厅,起点,"(0,0)",3,3,"[2,3]","[]",0,true,false,false
+2,训练室,训练,"(3,0)",2,2,"[1,4]","[]",7,false,false,false
+3,战斗房间,战斗,"(0,3)",2,2,"[1,5,6]","[1,2]",0,false,false,false
+4,宝箱房间,宝箱,"(5,0)",2,2,"[2]","[]",1,false,false,false
+5,精英房间,精英,"(2,3)",2,2,"[3,7]","[5]",3,false,false,false
+6,商人房间,商人,"(0,5)",2,2,"[3,8]","[]",2,false,false,true
+7,BOSS房间,BOSS,"(4,3)",3,3,"[5,9]","[11]",0,false,true,false
+8,休息房间,休息,"(0,7)",2,2,"[6]","[]",0,false,false,false
+9,最终BOSS,BOSS,"(7,3)",4,4,"[7]","[12]",0,false,true,false
+10,神秘房间,特殊,"(2,5)",2,2,"[5,6]","[]",6,false,false,false

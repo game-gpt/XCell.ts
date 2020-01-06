@@ -1,0 +1,14 @@
+@list,name,class_id,starting_hp,hero_power_id,portrait,unlock_condition
+id,i32,text,&Classes,i32,&Effects,text,text
+1,加尔鲁什·地狱咆哮,1,30,1,portrait_garrosh.png,默认解锁
+2,吉安娜·普罗德摩尔,2,30,2,portrait_jaina.png,默认解锁
+3,安杜因·乌瑞恩,3,30,3,portrait_anduin.png,默认解锁
+4,瓦莉拉·萨古纳尔,4,30,4,portrait_valeera.png,默认解锁
+5,雷克萨,5,30,5,portrait_rexxar.png,默认解锁
+6,乌瑟尔·光明使者,6,30,6,portrait_uther.png,默认解锁
+7,古尔丹,7,30,7,portrait_guldan.png,默认解锁
+8,玛法里奥·怒风,8,30,8,portrait_malfurion.png,默认解锁
+9,萨尔,9,30,9,portrait_thrall.png,默认解锁
+10,麦格娜·铜须,1,30,1,portrait_magni.png,战士等级10级解锁
+11,卡德加,2,30,2,portrait_khadgar.png,法师等级10级解锁
+12,泰兰德·语风,3,30,3,portrait_tyrande.png,牧师等级10级解锁

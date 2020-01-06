@@ -1,0 +1,12 @@
+@list,name,description,type,condition,reward,icon
+id,text,text,text,text,text,text
+1,初次相遇,与樱井雪第一次对话,剧情,完成第一段对话,解锁雪的角色档案,achievement_first_meet.png
+2,图书馆之约,与雪一起去图书馆,约会,在图书馆场景与雪对话,好感度+10,achievement_library.png
+3,咖啡时光,与雪一起喝咖啡,约会,在咖啡厅场景与雪对话,好感度+5,achievement_cafe.png
+4,月光告白,在月光下告白成功,剧情,完成告白剧情,解锁雪的好结局,achievement_confession.png
+5,学霸之路,阅读所有历史书籍,收集,在图书馆阅读10本书,解锁隐藏剧情,achievement_scholar.png
+6,社交达人,与所有角色建立友好关系,社交,所有角色好感度达到2级,解锁全角色档案,achievement_social.png
+7,完美结局,达成雪的真结局,结局,完成雪的所有好感条件,解锁后日谈,achievement_perfect.png
+8,神秘探索者,发现凉子的秘密,剧情,完成凉子的神秘路线,解锁凉子角色档案,achievement_mystery.png
+9,友情至上,与健太成为挚友,社交,健太好感度达到3级,解锁健太支线剧情,achievement_friendship.png
+10,收集大师,收集所有CG图片,收集,解锁所有场景CG,解锁画廊模式,achievement_collector.png

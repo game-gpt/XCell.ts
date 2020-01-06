@@ -1,0 +1,17 @@
+@list,name,description,type,quality,level_requirement,buy_price,sell_price,icon,color
+id,text,text,text,Quality,i32,i32,i32,text,color
+1,小型治疗药水,恢复100点生命值,消耗品,Common,1,10,5,icon_potion_small,#FF0000
+2,中型治疗药水,恢复250点生命值,消耗品,Uncommon,10,50,25,icon_potion_medium,#FF0000
+3,大型治疗药水,恢复500点生命值,消耗品,Rare,20,200,100,icon_potion_large,#FF0000
+4,小型法力药水,恢复80点法力值,消耗品,Common,1,15,7,icon_mana_small,#0000FF
+5,中型法力药水,恢复200点法力值,消耗品,Uncommon,10,75,37,icon_mana_medium,#0000FF
+6,大型法力药水,恢复400点法力值,消耗品,Rare,20,250,125,icon_mana_large,#0000FF
+7,传送卷轴,传送到绑定的城镇,消耗品,Common,1,100,10,icon_scroll,#FFFF00
+8,复活石,死亡后原地复活,消耗品,Epic,30,1000,100,icon_resurrect,#FF00FF
+9,力量符文,永久增加5点力量,消耗品,Rare,40,500,50,icon_rune_str,#FF6600
+10,智力符文,永久增加5点智力,消耗品,Rare,40,500,50,icon_rune_int,#00FFFF
+11,敏捷符文,永久增加5点敏捷,消耗品,Rare,40,500,50,icon_rune_agi,#00FF00
+12,精神符文,永久增加5点精神,消耗品,Rare,40,500,50,icon_rune_spi,#FFFF00
+13,经验卷轴,使用后获得1000经验值,消耗品,Uncommon,1,200,20,icon_exp_scroll,#FFD700
+14,金币袋,打开获得100金币,消耗品,Common,1,0,10,icon_coin_bag,#FFD700
+15,宝箱钥匙,打开宝箱的钥匙,消耗品,Common,1,50,5,icon_key,#C0C0C0

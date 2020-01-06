@@ -1,0 +1,66 @@
+{
+  "name": "@game-gpt/xcell-cocos",
+  "version": "0.1.0",
+  "description": "XCell Cocos Plugin - XCell integration for Cocos Creator",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": ["dist", "package.json"],
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite build --watch",
+    "test": "vitest",
+    "test:run": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": ["xcell", "cocos", "plugin"],
+  "author": "",
+  "license": "MPL-2.0",
+  "devDependencies": {
+    "@vitest/coverage-v8": "2.1.9",
+    "tsup": "^8.0.0",
+    "typescript": "^5.0.0",
+    "vite": "^5.0.0",
+    "vitest": "^2.1.8",
+    "@bytecodealliance/preview2-shim": "^0.17.8"
+  },
+  "dependencies": {
+    "@game-gpt/xcell": "file:../xcell"
+  },
+  "cocos-plugin": {
+    "name": "XCell",
+    "version": "0.1.0",
+    "description": "XCell integration for Cocos Creator",
+    "author": "",
+    "main": "./dist/index.js",
+    "engines": {
+      "cocos-creator": "^3.0.0"
+    },
+    "contributes": {
+      "commands": [
+        {
+          "id": "xcell.processTable",
+          "title": "Process Table",
+          "category": "XCell"
+        },
+        {
+          "id": "xcell.validateTable",
+          "title": "Validate Table",
+          "category": "XCell"
+        }
+      ],
+      "menus": {
+        "editor/menu/tool": [
+          {
+            "command": "xcell.processTable",
+            "title": "XCell: Process Table"
+          },
+          {
+            "command": "xcell.validateTable",
+            "title": "XCell: Validate Table"
+          }
+        ]
+      }
+    }
+  }
+}

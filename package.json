@@ -1,0 +1,22 @@
+{
+    "private": true,
+    "scripts": {
+        "build": "cargo build --release",
+        "build:homepage": "cd frontends/homepage && pnpm build",
+        "dev:homepage": "cd frontends/homepage && pnpm dev",
+        "test": "cargo test --release",
+        "fmt": "npx @biomejs/biome format --write . && cargo fmt --all",
+        "i": "cd projects/xcell-cli && cargo install --path . --force",
+        "u": "cargo upgrade --offline --incompatible --verbose",
+        "p": "git push && git push --tags --prune",
+        "gnu": "cargo +nightly-x86_64-pc-windows-gnu build --release",
+        "msvc": "cargo +nightly-x86_64-pc-windows-msvc build --release",
+        "check:27": "cargo run -- --workspace examples/real-project-27 check",
+        "build:27": "cargo run -- --workspace examples/real-project-27"
+    },
+    "devDependencies": {
+        "@types/node": "^25.6.0",
+        "@types/vscode": "^1.115.0",
+        "typescript": "^6.0.2"
+    }
+}

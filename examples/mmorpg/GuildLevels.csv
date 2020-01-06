@@ -1,0 +1,8 @@
+@class,@comment,@type,@default
+max_members_base,基础成员上限,i32,50
+member_per_level,每级增加成员,i32,10
+max_level,公会最大等级,i32,20
+exp_per_level_base,基础升级经验,i32,1000
+exp_multiplier,经验倍率,f32,1.5
+guild_bank_slots,公会银行格子,i32,100
+guild_skills,公会技能数量,i32,5

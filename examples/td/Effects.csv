@@ -1,0 +1,12 @@
+@list,name,description,type,duration,value,stackable
+id,text,text,text,f32,f32,bool
+1,减速,降低敌人移动速度,slow,3.0,0.3,false
+2,燃烧,持续造成火焰伤害,burn,5.0,10.0,true
+3,冰冻,冻结敌人使其无法移动,freeze,2.0,0.0,false
+4,中毒,持续造成毒素伤害,poison,6.0,8.0,true
+5,眩晕,使敌人无法行动,stun,1.5,0.0,false
+6,虚弱,降低敌人攻击力,weaken,4.0,0.2,false
+7,破甲,降低敌人护甲,armor_break,5.0,0.3,false
+8,麻痹,降低敌人攻击速度,paralyze,3.0,0.4,false
+9,流血,持续造成物理伤害,bleed,4.0,12.0,true
+10,诅咒,降低敌人魔法抗性,curse,6.0,0.25,false

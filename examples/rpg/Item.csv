@@ -1,0 +1,17 @@
+@list,name,type,level,attack,defense,description,quality,color,set_id
+id,text,text,i32,i32,i32,text,Quality,color,&SetBonus
+1,铁剑,weapon,1,10,0,一把基础铁剑,Common,#CCCCCC,
+2,木盾,armor,1,0,5,一个简单的木盾,Common,#8B4513,
+3,生命药水,consumable,1,0,0,恢复50点生命值,Common,#FF6B6B,
+4,锁子甲,armor,2,0,10,一件锁子甲,Uncommon,#A0A0A0,
+5,火魔杖,weapon,2,15,0,一把发射火焰的魔杖,Uncommon,#FF4500,1
+6,魔法药水,consumable,2,0,0,恢复30点法力值,Common,#4169E1,
+7,钢剑,weapon,3,20,0,一把锋利的钢剑,Rare,#B0C4DE,6
+8,板甲,armor,3,0,15,重型板甲,Rare,#708090,7
+9,高级生命药水,consumable,3,0,0,恢复100点生命值,Uncommon,#FF6B6B,
+10,闪电法杖,weapon,4,25,0,一把发射闪电的法杖,Rare,#00BFFF,3
+11,暗影匕首,weapon,5,30,0,暗影刺客的武器,Epic,#4B0082,4
+12,圣光护盾,armor,5,0,25,圣骑士的神圣护盾,Epic,#FFD700,5
+13,龙血剑,weapon,6,40,0,龙骑士的传说武器,Legendary,#FF4500,10
+14,寒冰法杖,weapon,4,22,0,冰霜法师的武器,Rare,#00BFFF,2
+15,死灵法袍,armor,5,0,20,死灵法师的装备,Epic,#4B0082,9

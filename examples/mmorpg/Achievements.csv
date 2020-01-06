@@ -1,0 +1,17 @@
+@list,name,description,category,points,reward_title,icon
+id,text,text,text,i32,text,text
+1,初出茅庐,完成新手教程,任务,5,新手冒险者,icon_achievement_newbie
+2,狩猎达人,击杀100只怪物,战斗,10,怪物猎人,icon_achievement_hunter
+3,副本征服者,完成所有副本,副本,30,副本之王,icon_achievement_dungeon
+4,巨龙杀手,击杀远古巨龙,战斗,50,屠龙勇士,icon_achievement_dragon
+5,财富积累,累计获得100000金币,经济,20,富甲一方,icon_achievement_rich
+6,社交达人,加入公会,社交,5,公会成员,icon_achievement_guild
+7,公会领袖,创建一个公会,社交,15,公会会长,icon_achievement_leader
+8,竞技冠军,获得竞技场冠军,PVP,25,竞技之王,icon_achievement_pvp
+9,收藏家,收集100件物品,收集,15,收藏大师,icon_achievement_collector
+10,满级勇士,达到最高等级,成长,30,传奇英雄,icon_achievement_maxlevel
+11,套装大师,收集一套完整套装,装备,20,套装收藏家,icon_achievement_set
+12,宝石镶嵌,镶嵌第一颗宝石,装备,5,宝石工匠,icon_achievement_gem
+13,技能大师,学会所有职业技能,技能,25,技能宗师,icon_achievement_skill
+14,任务狂人,完成500个任务,任务,20,任务达人,icon_achievement_quest
+15,不死传说,累计复活10次,成长,5,不死之身,icon_achievement_revive

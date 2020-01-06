@@ -1,0 +1,10 @@
+@class,@comment,@type,@default
+max_population,最大人口上限,i32,200
+starting_gold,初始金币,i32,1000
+starting_wood,初始木材,i32,500
+starting_stone,初始石材,i32,300
+starting_food,初始粮食,i32,200
+base_build_speed,基础建造速度,f32,1.0
+base_research_speed,基础研究速度,f32,1.0
+day_duration,白天时长(秒),i32,300
+night_duration,夜晚时长(秒),i32,180

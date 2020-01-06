@@ -1,0 +1,11 @@
+@list,name,description,hero_power_name,hero_power_description,hero_power_cost,hero_power_effect,icon,color
+id,i32,text,text,text,text,i32,&Effects,text,color
+1,战士,以护甲和武器为核心的职业,全副武装,获得2点护甲,2,1,icon_warrior.png,#C79C6E
+2,法师,掌控奥术之力的法术大师,火焰冲击,造成1点伤害,2,2,icon_mage.png,#69CCF0
+3,牧师,神圣之光的守护者,次级治疗,恢复2点生命值,2,3,icon_priest.png,#FFFFFF
+4,盗贼,暗影中的致命刺客,匕首精通,装备一把1/2的匕首,2,4,icon_rogue.png,#FFF569
+5,猎人,野性之魂的追随者,稳固射击,对敌方英雄造成2点伤害,2,5,icon_hunter.png,#ABD473
+6,圣骑士,圣光之力的捍卫者,援军,召唤一个1/1的白银之手新兵,2,6,icon_paladin.png,#F58CBA
+7,术士,黑暗契约的签订者,生命分流,抽一张牌并受到2点伤害,2,7,icon_warlock.png,#9482C9
+8,德鲁伊,自然的守护者,变形,本回合获得1点攻击力和1点护甲,2,8,icon_druid.png,#FF7D0A
+9,萨满,元素之灵的召唤者,图腾召唤,随机召唤一个图腾,2,9,icon_shaman.png,#0070DE

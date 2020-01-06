@@ -1,0 +1,8 @@
+@class,@comment,@type,@default
+starting_gold,初始金币,i32,500
+starting_lives,初始生命,i32,20
+gold_per_kill_base,基础击杀金币,i32,5
+interest_rate,利息率,f32,0.1
+max_tower_level,塔最高等级,i32,3
+sell_refund_rate,出售返还率,f32,0.7
+wave_bonus_multiplier,波次奖励倍率,f32,1.5

@@ -1,0 +1,33 @@
+version = "0.0.0"
+# 数据路径为 ./sheets
+project = "sheets"
+
+[line]
+comment = 1
+field = 2
+type = 3
+data = 6
+
+[[generators]]
+enable = true
+type = "Cocos"
+# ./cocos-placeholder
+project = "cocos-placeholder"
+# ts 加载器路径为 ./cocos-placeholder/assets/table
+loader = "assets/table"
+# 数据路径为 ./cocos-placeholder/assets/table
+storage = "assets/table/data"
+# 运行时加载类型，对 cocos 来说默认就是 json
+storage_type = "json"
+# 编辑器调试类型，省略的话，和运行时类型一致
+storage_debug_type = "json"
+
+
+[[generators]]
+enable = true
+type = "TypeScript"
+project = "backend-placeholder"
+loader = "src/table"
+storage = "src/table/data"
+# 运行时加载类型，对 typescript 来说默认就是 json
+storage_type = "json"

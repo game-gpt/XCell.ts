@@ -1,0 +1,12 @@
+@list,name,description,quality,attack_bonus,defense_bonus,health_bonus,color
+id,text,text,Quality,i32,i32,i32,color
+1,红宝石,增加攻击力的红色宝石,Uncommon,5,0,0,#FF0000
+2,蓝宝石,增加防御力的蓝色宝石,Uncommon,0,5,0,#0000FF
+3,绿宝石,增加生命值的绿色宝石,Uncommon,0,0,20,#00FF00
+4,火焰宝石,大幅增加攻击力的稀有宝石,Rare,15,0,0,#FF4500
+5,冰霜宝石,大幅增加防御力的稀有宝石,Rare,0,15,0,#00BFFF
+6,生命宝石,大幅增加生命值的稀有宝石,Rare,0,0,50,#32CD32
+7,暗影宝石,增加攻击和生命的史诗宝石,Epic,25,0,30,#4B0082
+8,圣光宝石,增加防御和生命的史诗宝石,Epic,0,25,40,#FFD700
+9,龙血宝石,全属性大幅提升的传说宝石,Legendary,40,30,80,#FF4500
+10,混沌宝石,最强大的传说宝石,Legendary,50,40,100,#8B008B

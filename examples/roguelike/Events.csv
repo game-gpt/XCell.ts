@@ -1,0 +1,13 @@
+@list,名称,描述,类型,最小层数,最大层数,权重,图标
+id,name,description,type,min_floor,max_floor,weight,icon
+i32,text,text,text,i32,i32,i32,text
+1,神秘宝箱,发现一个古老的宝箱,宝箱,1,50,30,"event_treasure_chest"
+2,流浪商人,一位神秘的商人出现在你面前,商人,1,50,25,"event_merchant"
+3,精英守卫,强大的敌人挡住了去路,精英,5,50,20,"event_elite_guard"
+4,神秘祭坛,散发着神秘光芒的祭坛,祭坛,1,50,15,"event_altar"
+5,陷阱房间,看起来很可疑的房间,陷阱,3,50,20,"event_trap_room"
+6,许愿池,可以实现愿望的神秘水池,许愿,1,50,10,"event_wishing_well"
+7,训练场,可以提升实力的训练场,训练,1,50,15,"event_training_ground"
+8,图书馆,充满古老书籍的图书馆,图书馆,1,50,12,"event_library"
+9,铁匠铺,可以升级装备的铁匠铺,铁匠,1,50,15,"event_blacksmith"
+10,神秘传送门,通往未知之地的传送门,传送,10,50,8,"event_portal"

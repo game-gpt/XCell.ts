@@ -1,0 +1,8 @@
+@enum,id,name,icon,description
+name,u32,text,text,text
+Gold,1,金币,icon_gold.png,主要货币
+Wood,2,木材,icon_wood.png,建筑材料
+Stone,3,石材,icon_stone.png,建筑材料
+Food,4,粮食,icon_food.png,维持人口
+Iron,5,铁矿,icon_iron.png,制造材料
+Crystal,6,水晶,icon_crystal.png,高级材料

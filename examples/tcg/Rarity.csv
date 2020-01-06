@@ -1,0 +1,6 @@
+@enum,id,name,color,dust_cost
+name,i32,text,color,i32
+Common,1,普通,#FFFFFF,40
+Rare,2,稀有,#0070DD,100
+Epic,3,史诗,#A335EE,400
+Legendary,4,传说,#FF8000,1600

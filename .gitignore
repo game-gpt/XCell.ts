@@ -1,0 +1,28 @@
+# OS
+.DS_Store/
+thumbs.db
+time-travel.*
+xcell.exe
+
+# IDE
+.vscode/
+.idea/
+.trae/
+.vs/
+*.iml
+*.xlsx
+
+# Rust
+target/
+sqlite/
+Cargo.lock
+.cargo/config.toml
+
+# Node
+node_modules/
+cache/
+dist/
+package-lock.json
+pnpm-lock.yaml
+*.log
+*.txt
