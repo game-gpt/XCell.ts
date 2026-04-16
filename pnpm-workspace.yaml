@@ -1,4 +1,4 @@
 packages:
-  - 'frontends/*'
-  - 'projects/*'
+  - 'compilers/*'
+  - 'runtimes/*'
   - 'documentation'

@@ -1,0 +1,30 @@
+{
+    "name": "@game-gpt/xcell-core",
+    "version": "0.1.0",
+    "description": "XCell Core - Type system, value system, and core abstractions",
+    "main": "./dist/index.js",
+    "module": "./dist/index.mjs",
+    "types": "./dist/index.d.ts",
+    "exports": {
+        ".": {
+            "import": "./dist/index.mjs",
+            "require": "./dist/index.js",
+            "types": "./dist/index.d.ts"
+        }
+    },
+    "files": ["dist"],
+    "scripts": {
+        "build": "tsup",
+        "dev": "tsup --watch",
+        "test": "vitest run",
+        "test:watch": "vitest",
+        "typecheck": "tsc --noEmit"
+    },
+    "keywords": ["xcell", "core", "types"],
+    "license": "MPL-2.0",
+    "devDependencies": {
+        "tsup": "^8.0.0",
+        "typescript": "^5.7.0",
+        "vitest": "^2.1.0"
+    }
+}
