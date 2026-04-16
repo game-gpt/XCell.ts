@@ -1,9 +1,12 @@
 import { describe, it, expect } from "vitest";
+import { XCellPrimitiveType } from "@game-gpt/xcell-core";
 import {
     mockPrimitiveType,
-    mockListType,
-    mockDictType,
-    mockOptionalType
+    mockArrayType,
+    mockVecType,
+    mockVec2Type,
+    mockVec3Type,
+    mockVec4Type
 } from "../src/mocks/generators";
 import {
     primitiveTypeFixtures,
@@ -20,32 +23,51 @@ import {
 
 describe("Mock Generators", () => {
     it("should generate primitive type", () => {
-        const type = mockPrimitiveType("int");
+        const type = mockPrimitiveType(XCellPrimitiveType.I32);
         expect(type.kind).toBe("primitive");
-        expect(type.name).toBe("int");
+        expect(type.primitive).toBe(XCellPrimitiveType.I32);
     });
 
-    it("should generate list type", () => {
-        const elementType = mockPrimitiveType("string");
-        const type = mockListType(elementType);
-        expect(type.kind).toBe("list");
-        expect(type.element).toEqual(elementType);
+    it("should generate array type", () => {
+        const elementType = mockPrimitiveType(XCellPrimitiveType.String);
+        const type = mockArrayType(elementType);
+        expect(type.kind).toBe("array");
+        if (type.kind === "array") {
+            expect(type.elementType).toEqual(elementType);
+        }
     });
 
-    it("should generate dict type", () => {
-        const keyType = mockPrimitiveType("string");
-        const valueType = mockPrimitiveType("int");
-        const type = mockDictType(keyType, valueType);
-        expect(type.kind).toBe("dict");
-        expect(type.key).toEqual(keyType);
-        expect(type.value).toEqual(valueType);
+    it("should generate vec type", () => {
+        const elementType = mockPrimitiveType(XCellPrimitiveType.F32);
+        const type = mockVecType(elementType);
+        expect(type.kind).toBe("vec");
+        if (type.kind === "vec") {
+            expect(type.elementType).toEqual(elementType);
+        }
     });
 
-    it("should generate optional type", () => {
-        const innerType = mockPrimitiveType("int");
-        const type = mockOptionalType(innerType);
-        expect(type.kind).toBe("optional");
-        expect(type.inner).toEqual(innerType);
+    it("should generate vec2 type", () => {
+        const type = mockVec2Type(XCellPrimitiveType.F32);
+        expect(type.kind).toBe("vec2");
+        if (type.kind === "vec2") {
+            expect(type.elementType).toBe(XCellPrimitiveType.F32);
+        }
+    });
+
+    it("should generate vec3 type", () => {
+        const type = mockVec3Type(XCellPrimitiveType.F32);
+        expect(type.kind).toBe("vec3");
+        if (type.kind === "vec3") {
+            expect(type.elementType).toBe(XCellPrimitiveType.F32);
+        }
+    });
+
+    it("should generate vec4 type", () => {
+        const type = mockVec4Type(XCellPrimitiveType.F32);
+        expect(type.kind).toBe("vec4");
+        if (type.kind === "vec4") {
+            expect(type.elementType).toBe(XCellPrimitiveType.F32);
+        }
     });
 });
 

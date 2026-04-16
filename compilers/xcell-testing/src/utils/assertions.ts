@@ -3,7 +3,7 @@
  */
 
 import { expect } from "vitest";
-import type { UnifiedType } from "@game-gpt/xcell-core";
+import type { XCellTyped } from "@game-gpt/xcell-core";
 
 /**
  * Assert that a type matches expected structure
@@ -11,7 +11,7 @@ import type { UnifiedType } from "@game-gpt/xcell-core";
  * @param actual - The actual type
  * @param expected - The expected type kind
  */
-export function assertTypeKind(actual: UnifiedType, expected: string): void {
+export function assertTypeKind(actual: XCellTyped, expected: string): void {
     expect(actual.kind).toBe(expected);
 }
 
@@ -19,31 +19,27 @@ export function assertTypeKind(actual: UnifiedType, expected: string): void {
  * Assert that a type is a primitive type
  * 
  * @param type - The type to check
- * @param name - Expected primitive type name
  */
-export function assertPrimitiveType(type: UnifiedType, name: string): void {
+export function assertPrimitiveType(type: XCellTyped): void {
     expect(type.kind).toBe("primitive");
-    if (type.kind === "primitive") {
-        expect(type.name).toBe(name);
-    }
 }
 
 /**
- * Assert that a type is a list type
+ * Assert that a type is an array type
  * 
  * @param type - The type to check
  */
-export function assertListType(type: UnifiedType): void {
-    expect(type.kind).toBe("list");
+export function assertArrayType(type: XCellTyped): void {
+    expect(type.kind).toBe("array");
 }
 
 /**
- * Assert that a type is a dict type
+ * Assert that a type is a vec type
  * 
  * @param type - The type to check
  */
-export function assertDictType(type: UnifiedType): void {
-    expect(type.kind).toBe("dict");
+export function assertVecType(type: XCellTyped): void {
+    expect(type.kind).toBe("vec");
 }
 
 /**

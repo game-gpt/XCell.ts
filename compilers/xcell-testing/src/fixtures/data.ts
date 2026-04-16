@@ -2,6 +2,7 @@
  * Test fixture data
  */
 
+import { XCellPrimitiveType } from "@game-gpt/xcell-core";
 import type { TypeTestFixture, ValueTestFixture } from "./types";
 
 /**
@@ -12,28 +13,28 @@ export const primitiveTypeFixtures: TypeTestFixture[] = [
         name: "int-type",
         description: "Integer type fixture",
         tags: ["primitive", "numeric"],
-        type: { kind: "primitive", name: "int" },
+        type: { kind: "primitive", primitive: XCellPrimitiveType.I32 },
         expectedString: "int"
     },
     {
         name: "float-type",
         description: "Float type fixture",
         tags: ["primitive", "numeric"],
-        type: { kind: "primitive", name: "float" },
+        type: { kind: "primitive", primitive: XCellPrimitiveType.F32 },
         expectedString: "float"
     },
     {
         name: "string-type",
         description: "String type fixture",
         tags: ["primitive", "text"],
-        type: { kind: "primitive", name: "string" },
+        type: { kind: "primitive", primitive: XCellPrimitiveType.String },
         expectedString: "string"
     },
     {
         name: "bool-type",
         description: "Boolean type fixture",
         tags: ["primitive", "logic"],
-        type: { kind: "primitive", name: "bool" },
+        type: { kind: "primitive", primitive: XCellPrimitiveType.Bool },
         expectedString: "bool"
     }
 ];

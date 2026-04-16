@@ -2,58 +2,82 @@
  * Mock data generators
  */
 
-import type { UnifiedType } from "@game-gpt/xcell-core";
+import type { XCellTyped, XCellPrimitiveType } from "@game-gpt/xcell-core";
 
 /**
  * Generate a mock primitive type
  * 
- * @param name - The primitive type name
+ * @param primitive - The primitive type
  * @returns A mock primitive type
  */
-export function mockPrimitiveType(name: string): UnifiedType {
+export function mockPrimitiveType(primitive: XCellPrimitiveType): XCellTyped {
     return {
         kind: "primitive",
-        name
+        primitive
     };
 }
 
 /**
- * Generate a mock list type
+ * Generate a mock array type
  * 
  * @param elementType - The element type
- * @returns A mock list type
+ * @returns A mock array type
  */
-export function mockListType(elementType: UnifiedType): UnifiedType {
+export function mockArrayType(elementType: XCellTyped): XCellTyped {
     return {
-        kind: "list",
-        element: elementType
+        kind: "array",
+        elementType
     };
 }
 
 /**
- * Generate a mock dict type
+ * Generate a mock vec type
  * 
- * @param keyType - The key type
- * @param valueType - The value type
- * @returns A mock dict type
+ * @param elementType - The element type
+ * @returns A mock vec type
  */
-export function mockDictType(keyType: UnifiedType, valueType: UnifiedType): UnifiedType {
+export function mockVecType(elementType: XCellTyped): XCellTyped {
     return {
-        kind: "dict",
-        key: keyType,
-        value: valueType
+        kind: "vec",
+        elementType
     };
 }
 
 /**
- * Generate a mock optional type
+ * Generate a mock vec2 type
  * 
- * @param innerType - The inner type
- * @returns A mock optional type
+ * @param elementType - The primitive element type
+ * @returns A mock vec2 type
  */
-export function mockOptionalType(innerType: UnifiedType): UnifiedType {
+export function mockVec2Type(elementType: XCellPrimitiveType): XCellTyped {
     return {
-        kind: "optional",
-        inner: innerType
+        kind: "vec2",
+        elementType
+    };
+}
+
+/**
+ * Generate a mock vec3 type
+ * 
+ * @param elementType - The primitive element type
+ * @returns A mock vec3 type
+ */
+export function mockVec3Type(elementType: XCellPrimitiveType): XCellTyped {
+    return {
+        kind: "vec3",
+        elementType
+    };
+}
+
+/**
+ * Generate a mock vec4 type
+ * 
+ * @param elementType - The primitive element type
+ * @returns A mock vec4 type
+ */
+export function mockVec4Type(elementType: XCellPrimitiveType): XCellTyped {
+    return {
+        kind: "vec4",
+        elementType
     };
 }
