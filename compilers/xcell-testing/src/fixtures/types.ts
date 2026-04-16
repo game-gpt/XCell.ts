@@ -2,7 +2,7 @@
  * Test fixture type definitions
  */
 
-import type { UnifiedType } from "@game-gpt/xcell-core";
+import type { XCellTyped } from "@game-gpt/xcell-core";
 
 /**
  * Test fixture configuration
@@ -31,7 +31,7 @@ export interface TypeTestFixture extends TestFixtureConfig {
     /**
      * The unified type to test
      */
-    type: UnifiedType;
+    type: XCellTyped;
     
     /**
      * Expected string representation
