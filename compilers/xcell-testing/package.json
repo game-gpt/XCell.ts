@@ -1,7 +1,7 @@
 {
-    "name": "@game-gpt/xcell-core",
+    "name": "@game-gpt/xcell-testing",
     "version": "0.1.0",
-    "description": "XCell Core - Type system, value system, and core abstractions",
+    "description": "XCell Testing - Testing utilities and fixtures for XCell",
     "main": "./dist/index.js",
     "module": "./dist/index.mjs",
     "types": "./dist/index.d.ts",
@@ -20,11 +20,14 @@
         "test:watch": "vitest",
         "typecheck": "tsc --noEmit"
     },
-    "keywords": ["xcell", "core", "types"],
+    "keywords": ["xcell", "testing", "test", "fixtures"],
     "license": "MPL-2.0",
     "devDependencies": {
         "tsup": "^8.0.0",
         "typescript": "^5.7.0",
         "vitest": "^2.1.0"
+    },
+    "dependencies": {
+        "@game-gpt/xcell-core": "workspace:*"
     }
 }
