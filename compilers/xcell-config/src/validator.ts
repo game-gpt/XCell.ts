@@ -34,7 +34,10 @@ export function validateProjectConfig(config: ProjectConfig): string[] {
         if (typeof config.line.type !== "number" || config.line.type < 1) {
             errors.push("line.type 必须为正整数");
         }
-        if (typeof config.line.comment !== "number" || config.line.comment < 0) {
+        if (
+            typeof config.line.comment !== "number" ||
+            config.line.comment < 0
+        ) {
             errors.push("line.comment 必须为非负整数（0 表示无注释行）");
         }
         if (typeof config.line.data !== "number" || config.line.data < 1) {
@@ -63,7 +66,9 @@ export function validateProjectConfig(config: ProjectConfig): string[] {
         for (let i = 0; i < config.generators.length; i++) {
             const gen = config.generators[i];
             if (!gen.type || !KNOWN_GENERATOR_TYPES.has(gen.type)) {
-                errors.push(`generators[${i}].type "${gen.type}" 不是已知的生成器类型`);
+                errors.push(
+                    `generators[${i}].type "${gen.type}" 不是已知的生成器类型`,
+                );
             }
             if (typeof gen.enable !== "boolean") {
                 errors.push(`generators[${i}].enable 必须为布尔值`);

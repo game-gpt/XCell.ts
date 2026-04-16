@@ -48,113 +48,117 @@ const currentDocPath = ref<string>("");
 const currentDoc = ref<DocNode | null>(null);
 const currentDocContent = ref<string>("");
 const currentLanguage = ref<string>(
-	localStorage.getItem("language") || "zh-hans",
+    localStorage.getItem("language") || "zh-hans",
 );
 const errorMessage = ref<string>("");
 const allDocs = ref<Map<string, DocNode>>(new Map());
 
 function buildDocMap(docs: DocNode[], map: Map<string, DocNode>) {
-	for (const doc of docs) {
-		map.set(doc.path, doc);
-		if (doc.children) {
-			buildDocMap(doc.children, map);
-		}
-	}
+    for (const doc of docs) {
+        map.set(doc.path, doc);
+        if (doc.children) {
+            buildDocMap(doc.children, map);
+        }
+    }
 }
 
 async function loadDocByPath(path: string) {
-	const doc = allDocs.value.get(path);
-	if (doc) {
-		await selectDoc(doc, false);
-	} else {
-		currentDoc.value = null;
-		currentDocContent.value = "";
-		errorMessage.value = `找不到文档: ${path}`;
-	}
+    const doc = allDocs.value.get(path);
+    if (doc) {
+        await selectDoc(doc, false);
+    } else {
+        currentDoc.value = null;
+        currentDocContent.value = "";
+        errorMessage.value = `找不到文档: ${path}`;
+    }
 }
 
 async function init() {
-	try {
-		console.log("Initializing docs...");
-		console.log("Current language:", currentLanguage.value);
+    try {
+        console.log("Initializing docs...");
+        console.log("Current language:", currentLanguage.value);
 
-		docTree.value = await loadDocs(currentLanguage.value);
-		allDocs.value.clear();
-		buildDocMap(docTree.value, allDocs.value);
+        docTree.value = await loadDocs(currentLanguage.value);
+        allDocs.value.clear();
+        buildDocMap(docTree.value, allDocs.value);
 
-		console.log("Loaded docTree:", docTree.value);
-		console.log("All docs map size:", allDocs.value.size);
+        console.log("Loaded docTree:", docTree.value);
+        console.log("All docs map size:", allDocs.value.size);
 
-		const urlPath = route.params.pathMatch as string | string[] | undefined;
-		const docPath = Array.isArray(urlPath) ? urlPath.join("/") : (urlPath || "");
+        const urlPath = route.params.pathMatch as string | string[] | undefined;
+        const docPath = Array.isArray(urlPath)
+            ? urlPath.join("/")
+            : urlPath || "";
 
-		if (docPath) {
-			await loadDocByPath(docPath);
-		} else if (docTree.value.length > 0) {
-			const firstDoc = findFirstDoc(docTree.value[0]);
-			if (firstDoc) {
-				await selectDoc(firstDoc, true);
-			}
-		}
-	} catch (error) {
-		console.error("Error initializing docs:", error);
-		errorMessage.value = `Error: ${error instanceof Error ? error.message : String(error)}`;
-	}
+        if (docPath) {
+            await loadDocByPath(docPath);
+        } else if (docTree.value.length > 0) {
+            const firstDoc = findFirstDoc(docTree.value[0]);
+            if (firstDoc) {
+                await selectDoc(firstDoc, true);
+            }
+        }
+    } catch (error) {
+        console.error("Error initializing docs:", error);
+        errorMessage.value = `Error: ${error instanceof Error ? error.message : String(error)}`;
+    }
 }
 
 function findFirstDoc(node: DocNode): DocNode | null {
-	if (!node.isDirectory && !node.children?.length) {
-		return node;
-	}
-	if (node.children && node.children.length > 0) {
-		return findFirstDoc(node.children[0]);
-	}
-	return null;
+    if (!node.isDirectory && !node.children?.length) {
+        return node;
+    }
+    if (node.children && node.children.length > 0) {
+        return findFirstDoc(node.children[0]);
+    }
+    return null;
 }
 
 async function selectDoc(node: DocNode, updateRoute: boolean = true) {
-	console.log("=== selectDoc called ===");
-	console.log(`Node:`, node);
-	currentDocPath.value = node.path;
-	currentDoc.value = node;
-	errorMessage.value = "";
+    console.log("=== selectDoc called ===");
+    console.log(`Node:`, node);
+    currentDocPath.value = node.path;
+    currentDoc.value = node;
+    errorMessage.value = "";
 
-	currentDocContent.value = await getDocContent(
-		node.path,
-		currentLanguage.value,
-	);
-	console.log(`Got content length: ${currentDocContent.value.length}`);
+    currentDocContent.value = await getDocContent(
+        node.path,
+        currentLanguage.value,
+    );
+    console.log(`Got content length: ${currentDocContent.value.length}`);
 
-	if (updateRoute) {
-		router.push(`/document/${node.path}`);
-	}
+    if (updateRoute) {
+        router.push(`/document/${node.path}`);
+    }
 }
 
 function checkLanguageChange() {
-	const storedLanguage = localStorage.getItem("language") || "zh-hans";
-	if (storedLanguage !== currentLanguage.value) {
-		currentLanguage.value = storedLanguage;
-		init();
-	}
+    const storedLanguage = localStorage.getItem("language") || "zh-hans";
+    if (storedLanguage !== currentLanguage.value) {
+        currentLanguage.value = storedLanguage;
+        init();
+    }
 }
 
 const languageCheckInterval = setInterval(checkLanguageChange, 1000);
 
 watch(
-	() => route.params.pathMatch,
-	async (newPath) => {
-		const docPath = Array.isArray(newPath) ? newPath.join("/") : (newPath || "");
-		if (docPath && docPath !== currentDocPath.value) {
-			await loadDocByPath(docPath);
-		}
-	},
+    () => route.params.pathMatch,
+    async (newPath) => {
+        const docPath = Array.isArray(newPath)
+            ? newPath.join("/")
+            : newPath || "";
+        if (docPath && docPath !== currentDocPath.value) {
+            await loadDocByPath(docPath);
+        }
+    },
 );
 
 onMounted(() => {
-	init();
+    init();
 });
 
 onUnmounted(() => {
-	clearInterval(languageCheckInterval);
+    clearInterval(languageCheckInterval);
 });
 </script>

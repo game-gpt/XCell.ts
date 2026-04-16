@@ -7,7 +7,7 @@ import type { XCellTyped } from "@game-gpt/xcell-core";
 
 /**
  * Assert that a type matches expected structure
- * 
+ *
  * @param actual - The actual type
  * @param expected - The expected type kind
  */
@@ -17,7 +17,7 @@ export function assertTypeKind(actual: XCellTyped, expected: string): void {
 
 /**
  * Assert that a type is a primitive type
- * 
+ *
  * @param type - The type to check
  */
 export function assertPrimitiveType(type: XCellTyped): void {
@@ -26,7 +26,7 @@ export function assertPrimitiveType(type: XCellTyped): void {
 
 /**
  * Assert that a type is an array type
- * 
+ *
  * @param type - The type to check
  */
 export function assertArrayType(type: XCellTyped): void {
@@ -35,7 +35,7 @@ export function assertArrayType(type: XCellTyped): void {
 
 /**
  * Assert that a type is a vec type
- * 
+ *
  * @param type - The type to check
  */
 export function assertVecType(type: XCellTyped): void {
@@ -44,7 +44,7 @@ export function assertVecType(type: XCellTyped): void {
 
 /**
  * Assert that a value is valid
- * 
+ *
  * @param value - The value to check
  * @param isValid - Expected validity
  */

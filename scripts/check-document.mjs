@@ -1,25 +1,25 @@
-import { readdir, readFile } from 'node:fs/promises';
-import { join, relative } from 'node:path';
+import { readdir, readFile } from "node:fs/promises";
+import { join, relative } from "node:path";
 
-const DEFAULT_SOURCE = 'zh-hans';
-const DEFAULT_TARGETS = ['en', 'ja', 'zh-hant'];
-const DOC_ROOT = 'documentation';
+const DEFAULT_SOURCE = "zh-hans";
+const DEFAULT_TARGETS = ["en", "ja", "zh-hant"];
+const DOC_ROOT = "documentation";
 
 function parseArgs() {
     const args = process.argv.slice(2);
     const result = {
         source: DEFAULT_SOURCE,
         targets: [...DEFAULT_TARGETS],
-        help: false
+        help: false,
     };
 
     for (let i = 0; i < args.length; i++) {
         const arg = args[i];
-        if (arg === '--source') {
+        if (arg === "--source") {
             result.source = args[++i];
-        } else if (arg === '--targets') {
-            result.targets = args[++i].split(',').map(t => t.trim());
-        } else if (arg === '--help' || arg === '-h') {
+        } else if (arg === "--targets") {
+            result.targets = args[++i].split(",").map((t) => t.trim());
+        } else if (arg === "--help" || arg === "-h") {
             result.help = true;
         }
     }
@@ -36,7 +36,7 @@ function printHelp() {
 
 选项:
   --source <lang>    源语言目录名 (默认: ${DEFAULT_SOURCE})
-  --targets <langs>  目标语言列表，逗号分隔 (默认: ${DEFAULT_TARGETS.join(',')})
+  --targets <langs>  目标语言列表，逗号分隔 (默认: ${DEFAULT_TARGETS.join(",")})
   --help, -h         显示帮助信息
 
 示例:
@@ -47,24 +47,24 @@ function printHelp() {
 
 async function scanDirectory(dir, baseDir = dir) {
     const files = [];
-    
+
     async function scan(currentDir) {
         const entries = await readdir(currentDir, { withFileTypes: true });
-        
+
         for (const entry of entries) {
             const fullPath = join(currentDir, entry.name);
-            
+
             if (entry.isDirectory()) {
                 await scan(fullPath);
-            } else if (entry.isFile() && entry.name.endsWith('.md')) {
+            } else if (entry.isFile() && entry.name.endsWith(".md")) {
                 files.push({
                     absolutePath: fullPath,
-                    relativePath: relative(baseDir, fullPath)
+                    relativePath: relative(baseDir, fullPath),
                 });
             }
         }
     }
-    
+
     await scan(dir);
     return files.sort((a, b) => a.relativePath.localeCompare(b.relativePath));
 }
@@ -76,8 +76,8 @@ function parseMarkdownHeaders(content) {
 
     for (let i = 0; i < lines.length; i++) {
         const line = lines[i];
-        
-        if (line.startsWith('```')) {
+
+        if (line.startsWith("```")) {
             inCodeBlock = !inCodeBlock;
             continue;
         }
@@ -91,7 +91,7 @@ function parseMarkdownHeaders(content) {
             headers.push({
                 level: headerMatch[1].length,
                 text: headerMatch[2].trim(),
-                line: i + 1
+                line: i + 1,
             });
         }
     }
@@ -117,7 +117,7 @@ function compareHeaders(sourceHeaders, targetHeaders) {
 
     const allLevels = new Set([
         ...Object.keys(sourceByLevel).map(Number),
-        ...Object.keys(targetByLevel).map(Number)
+        ...Object.keys(targetByLevel).map(Number),
     ]);
 
     for (const level of allLevels) {
@@ -127,14 +127,14 @@ function compareHeaders(sourceHeaders, targetHeaders) {
         if (sourceCount !== targetCount) {
             const firstDiff = findFirstDifference(
                 sourceByLevel[level] || [],
-                targetByLevel[level] || []
+                targetByLevel[level] || [],
             );
 
             differences.push({
                 level,
                 sourceCount,
                 targetCount,
-                line: firstDiff?.line || null
+                line: firstDiff?.line || null,
             });
         }
     }
@@ -144,7 +144,7 @@ function compareHeaders(sourceHeaders, targetHeaders) {
 
 function findFirstDifference(sourceHeaders, targetHeaders) {
     const maxLen = Math.max(sourceHeaders.length, targetHeaders.length);
-    
+
     for (let i = 0; i < maxLen; i++) {
         const source = sourceHeaders[i];
         const target = targetHeaders[i];
@@ -165,17 +165,17 @@ async function checkDocuments(sourceDir, targetDirs, docRoot) {
     const report = {
         sourceFiles: [],
         targetResults: {},
-        errors: []
+        errors: [],
     };
 
     const sourcePath = join(docRoot, sourceDir);
-    
+
     try {
         report.sourceFiles = await scanDirectory(sourcePath);
     } catch (error) {
         report.errors.push({
-            type: 'source_not_found',
-            message: `源语言目录不存在: ${sourcePath}`
+            type: "source_not_found",
+            message: `源语言目录不存在: ${sourcePath}`,
         });
         return report;
     }
@@ -187,23 +187,25 @@ async function checkDocuments(sourceDir, targetDirs, docRoot) {
             missingFiles: [],
             extraFiles: [],
             headerIssues: [],
-            passed: true
+            passed: true,
         };
 
         try {
             targetResult.files = await scanDirectory(targetPath);
         } catch (error) {
             targetResult.passed = false;
-            targetResult.missingFiles = report.sourceFiles.map(f => f.relativePath);
+            targetResult.missingFiles = report.sourceFiles.map(
+                (f) => f.relativePath,
+            );
             report.targetResults[targetDir] = targetResult;
             continue;
         }
 
         const sourceRelativePaths = new Set(
-            report.sourceFiles.map(f => f.relativePath)
+            report.sourceFiles.map((f) => f.relativePath),
         );
         const targetRelativePaths = new Set(
-            targetResult.files.map(f => f.relativePath)
+            targetResult.files.map((f) => f.relativePath),
         );
 
         for (const file of report.sourceFiles) {
@@ -220,39 +222,44 @@ async function checkDocuments(sourceDir, targetDirs, docRoot) {
 
         for (const sourceFile of report.sourceFiles) {
             const targetFile = targetResult.files.find(
-                f => f.relativePath === sourceFile.relativePath
+                (f) => f.relativePath === sourceFile.relativePath,
             );
 
             if (!targetFile) continue;
 
             try {
                 const [sourceContent, targetContent] = await Promise.all([
-                    readFile(sourceFile.absolutePath, 'utf-8'),
-                    readFile(targetFile.absolutePath, 'utf-8')
+                    readFile(sourceFile.absolutePath, "utf-8"),
+                    readFile(targetFile.absolutePath, "utf-8"),
                 ]);
 
                 const sourceHeaders = parseMarkdownHeaders(sourceContent);
                 const targetHeaders = parseMarkdownHeaders(targetContent);
-                const differences = compareHeaders(sourceHeaders, targetHeaders);
+                const differences = compareHeaders(
+                    sourceHeaders,
+                    targetHeaders,
+                );
 
                 if (differences.length > 0) {
                     targetResult.passed = false;
                     targetResult.headerIssues.push({
                         file: sourceFile.relativePath,
-                        differences
+                        differences,
                     });
                 }
             } catch (error) {
                 targetResult.passed = false;
                 targetResult.headerIssues.push({
                     file: sourceFile.relativePath,
-                    error: error.message
+                    error: error.message,
                 });
             }
         }
 
-        if (targetResult.missingFiles.length > 0 || 
-            targetResult.extraFiles.length > 0) {
+        if (
+            targetResult.missingFiles.length > 0 ||
+            targetResult.extraFiles.length > 0
+        ) {
             targetResult.passed = false;
         }
 
@@ -263,8 +270,8 @@ async function checkDocuments(sourceDir, targetDirs, docRoot) {
 }
 
 function printReport(report, sourceLang) {
-    console.log('文档检查报告');
-    console.log('============\n');
+    console.log("文档检查报告");
+    console.log("============\n");
 
     const sourceCount = report.sourceFiles.length;
     let hasErrors = false;
@@ -277,16 +284,22 @@ function printReport(report, sourceLang) {
     }
 
     if (!hasErrors) {
-        for (const [targetLang, result] of Object.entries(report.targetResults)) {
-            console.log(`✓ ${targetLang}: 检查通过 (${result.files.length} 个文件)`);
+        for (const [targetLang, result] of Object.entries(
+            report.targetResults,
+        )) {
+            console.log(
+                `✓ ${targetLang}: 检查通过 (${result.files.length} 个文件)`,
+            );
         }
-        console.log('\n总计: 所有语言检查通过');
+        console.log("\n总计: 所有语言检查通过");
         return;
     }
 
     for (const [targetLang, result] of Object.entries(report.targetResults)) {
         if (result.passed) {
-            console.log(`✓ ${targetLang}: 检查通过 (${result.files.length} 个文件)\n`);
+            console.log(
+                `✓ ${targetLang}: 检查通过 (${result.files.length} 个文件)\n`,
+            );
             continue;
         }
 
@@ -294,14 +307,14 @@ function printReport(report, sourceLang) {
             console.log(`✗ 文件数量不一致 (${targetLang})`);
             console.log(`  - ${sourceLang}: ${sourceCount} 个文件`);
             console.log(`  - ${targetLang}: ${result.files.length} 个文件`);
-            
+
             if (result.missingFiles.length > 0) {
-                console.log(`  - 缺失: ${result.missingFiles.join(', ')}`);
+                console.log(`  - 缺失: ${result.missingFiles.join(", ")}`);
             }
             if (result.extraFiles.length > 0) {
-                console.log(`  - 多余: ${result.extraFiles.join(', ')}`);
+                console.log(`  - 多余: ${result.extraFiles.join(", ")}`);
             }
-            console.log('');
+            console.log("");
         }
 
         for (const issue of result.headerIssues) {
@@ -313,19 +326,24 @@ function printReport(report, sourceLang) {
 
             for (const diff of issue.differences) {
                 console.log(`✗ Header 结构不一致: ${targetLang}/${issue.file}`);
-                console.log(`  - 源文档 H${diff.level} 数量: ${diff.sourceCount}`);
-                console.log(`  - 目标文档 H${diff.level} 数量: ${diff.targetCount}`);
+                console.log(
+                    `  - 源文档 H${diff.level} 数量: ${diff.sourceCount}`,
+                );
+                console.log(
+                    `  - 目标文档 H${diff.level} 数量: ${diff.targetCount}`,
+                );
                 if (diff.line) {
                     console.log(`  - 差异位置: 第 ${diff.line} 行`);
                 }
-                console.log('');
+                console.log("");
             }
         }
     }
 
-    const errorCount = Object.values(report.targetResults)
-        .filter(r => !r.passed).length;
-    
+    const errorCount = Object.values(report.targetResults).filter(
+        (r) => !r.passed,
+    ).length;
+
     console.log(`总计: ${errorCount} 个语言存在问题`);
 }
 
@@ -338,22 +356,23 @@ async function main() {
     }
 
     const docRoot = join(process.cwd(), DOC_ROOT);
-    
+
     console.log(`检查配置:`);
     console.log(`  源语言: ${args.source}`);
-    console.log(`  目标语言: ${args.targets.join(', ')}`);
+    console.log(`  目标语言: ${args.targets.join(", ")}`);
     console.log(`  文档根目录: ${docRoot}\n`);
 
     const report = await checkDocuments(args.source, args.targets, docRoot);
     printReport(report, args.source);
 
-    const hasErrors = Object.values(report.targetResults)
-        .some(r => !r.passed);
+    const hasErrors = Object.values(report.targetResults).some(
+        (r) => !r.passed,
+    );
 
     process.exit(hasErrors ? 1 : 0);
 }
 
-main().catch(error => {
-    console.error('执行错误:', error);
+main().catch((error) => {
+    console.error("执行错误:", error);
     process.exit(1);
 });

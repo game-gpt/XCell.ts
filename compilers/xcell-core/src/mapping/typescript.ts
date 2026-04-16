@@ -6,7 +6,9 @@ import type { XCellTyped } from "../types/unified";
  * @param primitive - XCell 原始类型
  * @returns 对应的 TypeScript 类型字符串
  */
-export function mapPrimitiveToTypeScript(primitive: XCellPrimitiveType): string {
+export function mapPrimitiveToTypeScript(
+    primitive: XCellPrimitiveType,
+): string {
     switch (primitive) {
         case XCellPrimitiveType.Bool:
             return "boolean";

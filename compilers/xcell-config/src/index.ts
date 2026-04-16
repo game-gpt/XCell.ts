@@ -24,6 +24,4 @@ export {
     loadProjectConfigFromDir,
 } from "./loader";
 
-export {
-    validateProjectConfig,
-} from "./validator";
+export { validateProjectConfig } from "./validator";

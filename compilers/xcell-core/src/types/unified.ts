@@ -1,6 +1,23 @@
 import type { XCellPrimitiveType } from "./primitive";
-import type { ArrayType, StaticArrayType, VecType, Vec2Type, Vec3Type, Vec4Type, HashMapType, TupleType } from "./compound";
-import type { ColorType, DateTimeType, TimeType, DateType, ReferenceType, UniqueType, PrimaryType } from "./special";
+import type {
+    ArrayType,
+    StaticArrayType,
+    VecType,
+    Vec2Type,
+    Vec3Type,
+    Vec4Type,
+    HashMapType,
+    TupleType,
+} from "./compound";
+import type {
+    ColorType,
+    DateTimeType,
+    TimeType,
+    DateType,
+    ReferenceType,
+    UniqueType,
+    PrimaryType,
+} from "./special";
 import type { EnumType, ClassType } from "./custom";
 
 /**
@@ -8,23 +25,23 @@ import type { EnumType, ClassType } from "./custom";
  */
 export type XCellTyped =
     | { kind: "primitive"; primitive: XCellPrimitiveType }
-    | { kind: "array" } & ArrayType
-    | { kind: "staticArray" } & StaticArrayType
-    | { kind: "vec" } & VecType
-    | { kind: "vec2" } & Vec2Type
-    | { kind: "vec3" } & Vec3Type
-    | { kind: "vec4" } & Vec4Type
-    | { kind: "hashMap" } & HashMapType
-    | { kind: "tuple" } & TupleType
-    | { kind: "color" } & ColorType
-    | { kind: "datetime" } & DateTimeType
-    | { kind: "time" } & TimeType
-    | { kind: "date" } & DateType
-    | { kind: "reference" } & ReferenceType
-    | { kind: "unique" } & UniqueType
-    | { kind: "primary" } & PrimaryType
-    | { kind: "enum" } & EnumType
-    | { kind: "class" } & ClassType;
+    | ({ kind: "array" } & ArrayType)
+    | ({ kind: "staticArray" } & StaticArrayType)
+    | ({ kind: "vec" } & VecType)
+    | ({ kind: "vec2" } & Vec2Type)
+    | ({ kind: "vec3" } & Vec3Type)
+    | ({ kind: "vec4" } & Vec4Type)
+    | ({ kind: "hashMap" } & HashMapType)
+    | ({ kind: "tuple" } & TupleType)
+    | ({ kind: "color" } & ColorType)
+    | ({ kind: "datetime" } & DateTimeType)
+    | ({ kind: "time" } & TimeType)
+    | ({ kind: "date" } & DateType)
+    | ({ kind: "reference" } & ReferenceType)
+    | ({ kind: "unique" } & UniqueType)
+    | ({ kind: "primary" } & PrimaryType)
+    | ({ kind: "enum" } & EnumType)
+    | ({ kind: "class" } & ClassType);
 
 /**
  * 类型元信息，携带额外的元属性

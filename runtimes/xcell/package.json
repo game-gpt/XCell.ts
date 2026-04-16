@@ -5,9 +5,7 @@
     "main": "./dist/index.js",
     "module": "./dist/index.mjs",
     "types": "./dist/index.d.ts",
-    "files": [
-        "dist"
-    ],
+    "files": ["dist"],
     "scripts": {
         "build": "vite build",
         "dev": "vite build --watch",
@@ -15,10 +13,7 @@
         "test:run": "vitest run",
         "typecheck": "tsc --noEmit"
     },
-    "keywords": [
-        "xcell",
-        "runtime"
-    ],
+    "keywords": ["xcell", "runtime"],
     "author": "",
     "license": "MPL-2.0",
     "devDependencies": {

@@ -5,7 +5,7 @@
  * 使用 src 目录下的包装层执行 XCell 功能
  */
 
-import {XCell} from "../../../runtimes/xcell/dist/index.mjs";
+import { XCell } from "../../../runtimes/xcell/dist/index.mjs";
 
 async function main() {
     console.log("XCell 命令行工具");
@@ -22,7 +22,7 @@ async function main() {
         console.log("WASI 组件测试成功:", helloMessage);
 
         console.log("\n测试表格处理...");
-        const testData = {id: 1, name: "Test", value: 100};
+        const testData = { id: 1, name: "Test", value: 100 };
         const processedData = await XCell.processTable(testData);
         console.log("表格处理结果:", processedData);
 

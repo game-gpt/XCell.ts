@@ -36,44 +36,52 @@ export enum XCellPrimitiveType {
  * 原始类型别名映射表，用于类型名称的规范化（不区分大小写）
  * 键为小写别名，值为对应的 XCellPrimitiveType
  */
-export const PRIMITIVE_TYPE_ALIASES: ReadonlyMap<string, XCellPrimitiveType> = new Map([
-    ["bool", XCellPrimitiveType.Bool],
-    ["boolean", XCellPrimitiveType.Bool],
-    ["char", XCellPrimitiveType.I8],
-    ["unsigned char", XCellPrimitiveType.U8],
-    ["byte", XCellPrimitiveType.U8],
-    ["short", XCellPrimitiveType.I16],
-    ["unsigned short", XCellPrimitiveType.U16],
-    ["ushort", XCellPrimitiveType.U16],
-    ["int", XCellPrimitiveType.I32],
-    ["unsigned int", XCellPrimitiveType.U32],
-    ["uint", XCellPrimitiveType.U32],
-    ["long", XCellPrimitiveType.I64],
-    ["long long", XCellPrimitiveType.I64],
-    ["unsigned long long", XCellPrimitiveType.U64],
-    ["ulong", XCellPrimitiveType.U64],
-    ["float", XCellPrimitiveType.F32],
-    ["double", XCellPrimitiveType.F64],
-    ["string", XCellPrimitiveType.String],
-    ["str", XCellPrimitiveType.String],
-    ["utf8", XCellPrimitiveType.Utf8],
-    ["utf16", XCellPrimitiveType.Utf16],
-]);
+export const PRIMITIVE_TYPE_ALIASES: ReadonlyMap<string, XCellPrimitiveType> =
+    new Map([
+        ["bool", XCellPrimitiveType.Bool],
+        ["boolean", XCellPrimitiveType.Bool],
+        ["char", XCellPrimitiveType.I8],
+        ["unsigned char", XCellPrimitiveType.U8],
+        ["byte", XCellPrimitiveType.U8],
+        ["short", XCellPrimitiveType.I16],
+        ["unsigned short", XCellPrimitiveType.U16],
+        ["ushort", XCellPrimitiveType.U16],
+        ["int", XCellPrimitiveType.I32],
+        ["unsigned int", XCellPrimitiveType.U32],
+        ["uint", XCellPrimitiveType.U32],
+        ["long", XCellPrimitiveType.I64],
+        ["long long", XCellPrimitiveType.I64],
+        ["unsigned long long", XCellPrimitiveType.U64],
+        ["ulong", XCellPrimitiveType.U64],
+        ["float", XCellPrimitiveType.F32],
+        ["double", XCellPrimitiveType.F64],
+        ["string", XCellPrimitiveType.String],
+        ["str", XCellPrimitiveType.String],
+        ["utf8", XCellPrimitiveType.Utf8],
+        ["utf16", XCellPrimitiveType.Utf16],
+    ]);
 
 /**
  * 根据类型名称解析原始类型，支持别名且不区分大小写
  * @param typeName - 类型名称或别名
  * @returns 对应的 XCellPrimitiveType，若无法识别则返回 undefined
  */
-export function resolvePrimitiveType(typeName: string): XCellPrimitiveType | undefined {
+export function resolvePrimitiveType(
+    typeName: string,
+): XCellPrimitiveType | undefined {
     const normalized = typeName.toLowerCase();
     const aliasResult = PRIMITIVE_TYPE_ALIASES.get(normalized);
     if (aliasResult !== undefined) {
         return aliasResult;
     }
     const enumValues = Object.values(XCellPrimitiveType) as string[];
-    if (enumValues.includes(normalized.charAt(0).toUpperCase() + normalized.slice(1))) {
-        return normalized.charAt(0).toUpperCase() + normalized.slice(1) as XCellPrimitiveType;
+    if (
+        enumValues.includes(
+            normalized.charAt(0).toUpperCase() + normalized.slice(1),
+        )
+    ) {
+        return (normalized.charAt(0).toUpperCase() +
+            normalized.slice(1)) as XCellPrimitiveType;
     }
     return undefined;
 }

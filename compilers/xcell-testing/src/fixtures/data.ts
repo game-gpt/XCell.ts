@@ -14,29 +14,29 @@ export const primitiveTypeFixtures: TypeTestFixture[] = [
         description: "Integer type fixture",
         tags: ["primitive", "numeric"],
         type: { kind: "primitive", primitive: XCellPrimitiveType.I32 },
-        expectedString: "int"
+        expectedString: "int",
     },
     {
         name: "float-type",
         description: "Float type fixture",
         tags: ["primitive", "numeric"],
         type: { kind: "primitive", primitive: XCellPrimitiveType.F32 },
-        expectedString: "float"
+        expectedString: "float",
     },
     {
         name: "string-type",
         description: "String type fixture",
         tags: ["primitive", "text"],
         type: { kind: "primitive", primitive: XCellPrimitiveType.String },
-        expectedString: "string"
+        expectedString: "string",
     },
     {
         name: "bool-type",
         description: "Boolean type fixture",
         tags: ["primitive", "logic"],
         type: { kind: "primitive", primitive: XCellPrimitiveType.Bool },
-        expectedString: "bool"
-    }
+        expectedString: "bool",
+    },
 ];
 
 /**
@@ -48,20 +48,20 @@ export const valueValidationFixtures: ValueTestFixture[] = [
         description: "Valid integer value",
         tags: ["primitive", "numeric", "valid"],
         value: 42,
-        isValid: true
+        isValid: true,
     },
     {
         name: "valid-string",
         description: "Valid string value",
         tags: ["primitive", "text", "valid"],
         value: "hello world",
-        isValid: true
+        isValid: true,
     },
     {
         name: "valid-bool",
         description: "Valid boolean value",
         tags: ["primitive", "logic", "valid"],
         value: true,
-        isValid: true
-    }
+        isValid: true,
+    },
 ];

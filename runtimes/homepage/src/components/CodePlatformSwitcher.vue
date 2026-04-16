@@ -20,24 +20,24 @@
 
 <script setup lang="ts">
 interface Platform {
-	label: string;
-	value: string;
+    label: string;
+    value: string;
 }
 
 interface Props {
-	platforms: Platform[];
-	modelValue: string;
+    platforms: Platform[];
+    modelValue: string;
 }
 
 const props = defineProps<Props>();
 const emit = defineEmits<{
-	(e: "update:modelValue", value: string): void;
+    (e: "update:modelValue", value: string): void;
 }>();
 
 const selectedPlatform = props.modelValue;
 
 function selectPlatform(platform: string) {
-	emit("update:modelValue", platform);
+    emit("update:modelValue", platform);
 }
 </script>
 

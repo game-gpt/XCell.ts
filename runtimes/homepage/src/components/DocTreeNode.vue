@@ -32,22 +32,22 @@ import { ref } from "vue";
 import type { DocNode } from "@/utils/docs";
 
 interface Props {
-	node: DocNode;
-	currentPath: string;
+    node: DocNode;
+    currentPath: string;
 }
 
 const props = defineProps<Props>();
 const emit = defineEmits<{
-	select: [node: DocNode];
+    select: [node: DocNode];
 }>();
 
 const isExpanded = ref(true);
 
 function toggle() {
-	isExpanded.value = !isExpanded.value;
+    isExpanded.value = !isExpanded.value;
 }
 
 function handleSelect() {
-	emit("select", props.node);
+    emit("select", props.node);
 }
 </script>

@@ -79,73 +79,73 @@ const showLanguageMenu = ref(false);
 const currentLanguage = ref(localStorage.getItem("language") || "zh-hans");
 
 const languages = [
-	{ code: "zh-hans", name: "简体中文" },
-	{ code: "en", name: "English" },
+    { code: "zh-hans", name: "简体中文" },
+    { code: "en", name: "English" },
 ];
 
 const currentLanguageName = computed(() => {
-	const lang = languages.find((l) => l.code === currentLanguage.value);
-	return lang ? lang.name : "简体中文";
+    const lang = languages.find((l) => l.code === currentLanguage.value);
+    return lang ? lang.name : "简体中文";
 });
 
 interface TranslationKeys {
-	home: string;
-	download: string;
-	document: string;
-	[key: string]: string;
+    home: string;
+    download: string;
+    document: string;
+    [key: string]: string;
 }
 
 interface Translations {
-	"zh-hans": TranslationKeys;
-	en: TranslationKeys;
-	[key: string]: TranslationKeys;
+    "zh-hans": TranslationKeys;
+    en: TranslationKeys;
+    [key: string]: TranslationKeys;
 }
 
 const translations: Translations = {
-	"zh-hans": {
-		home: "首页",
-		download: "下载",
-		document: "文档",
-	},
-	en: {
-		home: "Home",
-		download: "Download",
-		document: "Document",
-	},
+    "zh-hans": {
+        home: "首页",
+        download: "下载",
+        document: "文档",
+    },
+    en: {
+        home: "Home",
+        download: "Download",
+        document: "Document",
+    },
 };
 
 function getLocalizedText(key: string): string {
-	return (
-		translations[currentLanguage.value]?.[key] ||
-		translations["zh-hans"][key] ||
-		key
-	);
+    return (
+        translations[currentLanguage.value]?.[key] ||
+        translations["zh-hans"][key] ||
+        key
+    );
 }
 
 function toggleLanguageMenu() {
-	showLanguageMenu.value = !showLanguageMenu.value;
+    showLanguageMenu.value = !showLanguageMenu.value;
 }
 
 function switchLanguage(code: string) {
-	currentLanguage.value = code;
-	localStorage.setItem("language", code);
-	showLanguageMenu.value = false;
-	// 重新加载当前页面以应用语言变化
-	window.location.reload();
+    currentLanguage.value = code;
+    localStorage.setItem("language", code);
+    showLanguageMenu.value = false;
+    // 重新加载当前页面以应用语言变化
+    window.location.reload();
 }
 
 function handleClickOutside(event: MouseEvent) {
-	const target = event.target as HTMLElement;
-	if (!target.closest(".relative")) {
-		showLanguageMenu.value = false;
-	}
+    const target = event.target as HTMLElement;
+    if (!target.closest(".relative")) {
+        showLanguageMenu.value = false;
+    }
 }
 
 onMounted(() => {
-	document.addEventListener("click", handleClickOutside);
+    document.addEventListener("click", handleClickOutside);
 });
 
 onUnmounted(() => {
-	document.removeEventListener("click", handleClickOutside);
+    document.removeEventListener("click", handleClickOutside);
 });
 </script>

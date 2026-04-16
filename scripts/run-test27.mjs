@@ -14,8 +14,12 @@ function runWithTimeout(command, args, cwd, timeout) {
         let stdout = "";
         let stderr = "";
 
-        proc.stdout.on("data", (d) => { stdout += d; });
-        proc.stderr.on("data", (d) => { stderr += d; });
+        proc.stdout.on("data", (d) => {
+            stdout += d;
+        });
+        proc.stderr.on("data", (d) => {
+            stderr += d;
+        });
 
         const timer = setTimeout(() => {
             proc.kill("SIGKILL");
@@ -25,7 +29,10 @@ function runWithTimeout(command, args, cwd, timeout) {
         proc.on("close", (code) => {
             clearTimeout(timer);
             if (code === 0) resolve({ stdout, stderr });
-            else reject(new Error(`进程退出码: ${code}\n${stderr.slice(-2000)}`));
+            else
+                reject(
+                    new Error(`进程退出码: ${code}\n${stderr.slice(-2000)}`),
+                );
         });
 
         proc.on("error", (err) => {
@@ -53,7 +60,9 @@ function validateTsFiles(dir) {
         }
 
         if (content.includes("<%") && content.includes("%>")) {
-            errors.push(`[未渲染模板] ${file} — 包含原始 DejaVu 语法 <% ... %>`);
+            errors.push(
+                `[未渲染模板] ${file} — 包含原始 DejaVu 语法 <% ... %>`,
+            );
         }
 
         if (file !== "XCellManager.ts" && !content.includes("export class")) {
@@ -94,8 +103,15 @@ function validateJsonFiles(dir) {
                 continue;
             }
             const first = data[0];
-            if (typeof first === "object" && first !== null && "field" in first && "default" in first) {
-                errors.push(`[Schema 格式] ${file} — class 表 JSON 应为运行时数据 [{field_name: value}]，而非 schema [{field, default}]`);
+            if (
+                typeof first === "object" &&
+                first !== null &&
+                "field" in first &&
+                "default" in first
+            ) {
+                errors.push(
+                    `[Schema 格式] ${file} — class 表 JSON 应为运行时数据 [{field_name: value}]，而非 schema [{field, default}]`,
+                );
             }
         } else if (typeof data === "object" && data !== null) {
             const keys = Object.keys(data);
@@ -114,14 +130,24 @@ async function main() {
     console.log(`工作目录: ${ROOT}`);
     console.log(`超时设置: ${TIMEOUT_MS / 1000}s\n`);
 
-    console.log("[1/3] 执行 cargo run -- --workspace examples/real-project-27 ...");
+    console.log(
+        "[1/3] 执行 cargo run -- --workspace examples/real-project-27 ...",
+    );
     const startTime = Date.now();
     try {
-        const result = await runWithTimeout("cargo", ["run", "--", "--workspace", "examples/real-project-27"], ROOT, TIMEOUT_MS);
+        const result = await runWithTimeout(
+            "cargo",
+            ["run", "--", "--workspace", "examples/real-project-27"],
+            ROOT,
+            TIMEOUT_MS,
+        );
         const elapsed = ((Date.now() - startTime) / 1000).toFixed(1);
         console.log(`      完成 (${elapsed}s)\n`);
         if (result.stderr.trim()) {
-            const lines = result.stderr.trim().split("\n").filter((l) => l.includes("error") || l.includes("warning"));
+            const lines = result.stderr
+                .trim()
+                .split("\n")
+                .filter((l) => l.includes("error") || l.includes("warning"));
             if (lines.length > 0) {
                 console.log("      stderr 摘要:");
                 for (const line of lines.slice(0, 5)) {
@@ -153,7 +179,9 @@ async function main() {
     const jsonErrors = validateJsonFiles(BACKEND_DATA);
     if (jsonErrors.length === 0) {
         if (existsSync(BACKEND_DATA)) {
-            const jsonFiles = readdirSync(BACKEND_DATA).filter((f) => f.endsWith(".json"));
+            const jsonFiles = readdirSync(BACKEND_DATA).filter((f) =>
+                f.endsWith(".json"),
+            );
             console.log(`      通过 (${jsonFiles.length} 个 .json 文件)\n`);
         } else {
             console.log("      跳过 (data 目录不存在)\n");

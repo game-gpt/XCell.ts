@@ -8,7 +8,7 @@
 import { execSync } from "child_process";
 import { existsSync, mkdirSync, rmSync, statSync } from "fs";
 import { join } from "path";
-import { config } from './config.mjs';
+import { config } from "./config.mjs";
 
 // 打印当前工作目录
 console.log("当前工作目录:", process.cwd());
@@ -102,7 +102,9 @@ function buildWasi() {
     } catch (error) {
         console.error(`❌ 错误: WASI 组件构建失败`);
         console.error(`   提示: 请检查 Rust 代码是否有编译错误`);
-        console.error(`   建议: 进入 ${WASI_DIR} 目录运行 cargo component build 查看详细错误`);
+        console.error(
+            `   建议: 进入 ${WASI_DIR} 目录运行 cargo component build 查看详细错误`,
+        );
         process.exit(1);
     }
 
@@ -161,7 +163,9 @@ function buildWasi() {
     } catch (error) {
         console.error(`❌ 错误: 前端构建失败`);
         console.error(`   提示: 请检查前端代码是否有编译错误`);
-        console.error(`   建议: 进入 ${FRONTEND_DIR} 目录运行 pnpm build 查看详细错误`);
+        console.error(
+            `   建议: 进入 ${FRONTEND_DIR} 目录运行 pnpm build 查看详细错误`,
+        );
         process.exit(1);
     }
 

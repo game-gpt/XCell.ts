@@ -1,4 +1,9 @@
-import type { BoolTypeConfig, LineConfig, ProjectConfig, TypeConfig } from "./interfaces";
+import type {
+    BoolTypeConfig,
+    LineConfig,
+    ProjectConfig,
+    TypeConfig,
+} from "./interfaces";
 
 /** 创建默认行号映射配置 */
 export function createDefaultLineConfig(): LineConfig {

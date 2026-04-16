@@ -6,20 +6,14 @@ import {
     mockVecType,
     mockVec2Type,
     mockVec3Type,
-    mockVec4Type
+    mockVec4Type,
 } from "../src/mocks/generators";
 import {
     primitiveTypeFixtures,
-    valueValidationFixtures
+    valueValidationFixtures,
 } from "../src/fixtures/data";
-import {
-    assertTypeKind,
-    assertPrimitiveType
-} from "../src/utils/assertions";
-import {
-    filterByTags,
-    getFixtureByName
-} from "../src/utils/helpers";
+import { assertTypeKind, assertPrimitiveType } from "../src/utils/assertions";
+import { filterByTags, getFixtureByName } from "../src/utils/helpers";
 
 describe("Mock Generators", () => {
     it("should generate primitive type", () => {
@@ -74,7 +68,7 @@ describe("Mock Generators", () => {
 describe("Test Fixtures", () => {
     it("should have primitive type fixtures", () => {
         expect(primitiveTypeFixtures.length).toBeGreaterThan(0);
-        primitiveTypeFixtures.forEach(fixture => {
+        primitiveTypeFixtures.forEach((fixture) => {
             expect(fixture.name).toBeDefined();
             expect(fixture.type).toBeDefined();
             expect(fixture.expectedString).toBeDefined();
@@ -83,7 +77,7 @@ describe("Test Fixtures", () => {
 
     it("should have value validation fixtures", () => {
         expect(valueValidationFixtures.length).toBeGreaterThan(0);
-        valueValidationFixtures.forEach(fixture => {
+        valueValidationFixtures.forEach((fixture) => {
             expect(fixture.name).toBeDefined();
             expect(fixture.value).toBeDefined();
             expect(typeof fixture.isValid).toBe("boolean");
@@ -105,9 +99,11 @@ describe("Assertion Utilities", () => {
 
 describe("Helper Utilities", () => {
     it("should filter fixtures by tags", () => {
-        const numericFixtures = filterByTags(primitiveTypeFixtures, ["numeric"]);
+        const numericFixtures = filterByTags(primitiveTypeFixtures, [
+            "numeric",
+        ]);
         expect(numericFixtures.length).toBeGreaterThan(0);
-        numericFixtures.forEach(fixture => {
+        numericFixtures.forEach((fixture) => {
             expect(fixture.tags).toContain("numeric");
         });
     });

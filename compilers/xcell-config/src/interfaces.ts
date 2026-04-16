@@ -38,7 +38,14 @@ export interface MergeRule {
 }
 
 /** 生成器类型 */
-export type GeneratorType = "cocos" | "unity" | "typescript" | "json" | "sql" | "xml" | "xlua";
+export type GeneratorType =
+    | "cocos"
+    | "unity"
+    | "typescript"
+    | "json"
+    | "sql"
+    | "xml"
+    | "xlua";
 
 /** 生成器配置 */
 export interface GeneratorConfig {

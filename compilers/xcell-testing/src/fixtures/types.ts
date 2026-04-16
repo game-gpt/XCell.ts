@@ -12,12 +12,12 @@ export interface TestFixtureConfig {
      * Fixture name
      */
     name: string;
-    
+
     /**
      * Fixture description
      */
     description: string;
-    
+
     /**
      * Fixture tags for categorization
      */
@@ -32,7 +32,7 @@ export interface TypeTestFixture extends TestFixtureConfig {
      * The unified type to test
      */
     type: XCellTyped;
-    
+
     /**
      * Expected string representation
      */
@@ -47,7 +47,7 @@ export interface ValueTestFixture extends TestFixtureConfig {
      * The value to test
      */
     value: unknown;
-    
+
     /**
      * Expected validation result
      */
