@@ -24,5 +24,6 @@ cache/
 dist/
 package-lock.json
 pnpm-lock.yaml
+*.tsbuildinfo
 *.log
 *.txt
